@@ -1,7 +1,13 @@
 stop4solr4.x
 ============
 
-可以动态改变的停用词、同义词工厂类
+可以动态改变的停用词、同义词工厂类，**只支持solr4.4**，（如果你是4.4以下的，在POM中引入旧的solr再修改以下源码）
+
+DStopFilterFactory
+
+DSynonymFilterFactory
+
+
 在schema中添加
 
 `<fieldType name="text_my" class="solr.TextField" positionIncrementGap="100">`
