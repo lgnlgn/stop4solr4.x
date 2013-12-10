@@ -10,19 +10,23 @@ DSynonymFilterFactory
 
 在schema中添加
 
-`<fieldType name="text_my" class="solr.TextField" positionIncrementGap="100">`
+```xml
+<fieldType name="text_my" class="solr.TextField" positionIncrementGap="100">
 
- `<analyzer type="index">`
+  <analyzer type="index">
+    <tokenizer class="solr.PatternTokenizerFactory" pattern="\s*?,\s*?"/>
+  </analyzer>
 
-  ` <tokenizer class="solr.PatternTokenizerFactory" pattern="\s*?,\s*?"/></analyzer>`
-	 `<analyzer type="query">`
-       `<tokenizer class="solr.PatternTokenizerFactory" pattern="\s*?,\s*?"/>`
-	   `<filter class="org.apache.solr.analysis.DStopFilterFactory" conf="stop.conf" ignoreCase="true" enablePositionIncrements="true"/>`
-	   `<filter class="org.apache.solr.analysis.DSynonymFilterFactory" conf="synonym.conf" ignoreCase="true" expand="true"/>`
-     `</analyzer>`
-   `</fieldType> `
+  <analyzer type="query">
+    <tokenizer class="solr.PatternTokenizerFactory" pattern="\s*?,\s*?"/>
+    <filter class="org.apache.solr.analysis.DStopFilterFactory" conf="stop.conf" ignoreCase="true"
+            enablePositionIncrements="true"/>
+    <filter class="org.apache.solr.analysis.DSynonymFilterFactory" conf="synonym.conf" ignoreCase="true" expand="true"/>
+  </analyzer>
 
-（md的XML怎么写入我还是不太懂）
+</fieldType> 
+```
+
 其中conf="xxxx"是配置词路径的，使用Properties的格式：
 
   lastupdate=11122
