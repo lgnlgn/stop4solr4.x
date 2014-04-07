@@ -1,4 +1,4 @@
-stop4solr4.x（不再维护，未来可能删除：请去https://github.com/mlcsdev/mlcsseg）
+stop4solr4.x（不再维护，未来可能删除：请去https://github.com/mlcsdev/mlcsseg  ）
 ============
 
 可以动态改变的停用词、同义词工厂类，**只支持solr4.4**，（如果你是4.4以下的，在POM中引入旧的solr再修改以下源码）
